@@ -12,22 +12,44 @@ exit();
 }
 ?>
 
-<h2>Registrar Curso</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Curso</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<form action="insertarCurso.php" method="POST">
+<body class="bg-gradient-to-br from-slate-200 to-slate-300 min-h-screen flex items-center justify-center font-sans">
 
-Nombre del curso
-<br>
-<input type="text" name="nombre">
+    <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md">
 
-<br><br>
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+            Registrar Curso
+        </h2>
 
-Descripción
-<br>
-<input type="text" name="descripcion">
+        <form action="insertarCurso.php" method="POST">
 
-<br><br>
+            <div class="mb-4">
+                <label class="block text-gray-600 mb-1">Nombre del curso</label>
+                <input type="text" name="nombre"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+            </div>
 
-<button type="submit">Guardar</button>
+            <div class="mb-6">
+                <label class="block text-gray-600 mb-1">Descripción</label>
+                <input type="text" name="descripcion"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+            </div>
 
-</form>
+            <button type="submit"
+                class="w-full py-2 rounded-lg text-white font-medium bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 transition">
+                Guardar
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

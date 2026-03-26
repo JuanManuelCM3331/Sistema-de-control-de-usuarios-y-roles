@@ -14,49 +14,84 @@ $stmt->execute();
 $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<h2>Lista de Cursos</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Cursos</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<?php if($_SESSION["rol"] == "admin"){ ?>
-<a href="registrarCursoVS.php">Nuevo Curso</a>
-<?php } ?>
+<body class="bg-gradient-to-br from-slate-200 to-slate-300 min-h-screen font-sans">
 
-<br><br>
+    <div class="max-w-5xl mx-auto py-10">
 
-<table border="1">
+        <div class="bg-white p-8 rounded-2xl shadow-xl">
 
-<tr>
-<th>ID</th>
-<th>Nombre</th>
-<th>Descripción</th>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Lista de Cursos
+            </h2>
 
-<?php if($_SESSION["rol"] == "admin"){ ?>
-<th>Acciones</th>
-<?php } ?>
+            <?php if($_SESSION["rol"] == "admin"){ ?>
+                <div class="mb-4 text-right">
+                    <a href="registrarCursoVS.php"
+                       class="px-4 py-2 rounded-lg text-white font-medium bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 transition">
+                       Nuevo Curso
+                    </a>
+                </div>
+            <?php } ?>
 
-</tr>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
 
-<?php foreach($cursos as $c){ ?>
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-700">
+                            <th class="py-3 px-4 text-left">ID</th>
+                            <th class="py-3 px-4 text-left">Nombre</th>
+                            <th class="py-3 px-4 text-left">Descripción</th>
 
-<tr>
+                            <?php if($_SESSION["rol"] == "admin"){ ?>
+                                <th class="py-3 px-4 text-left">Acciones</th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
 
-<td><?php echo $c["id"]; ?></td>
-<td><?php echo $c["nombre"]; ?></td>
-<td><?php echo $c["descripcion"]; ?></td>
+                    <tbody>
 
-<?php if($_SESSION["rol"] == "admin"){ ?>
+                        <?php foreach($cursos as $c){ ?>
+                        <tr class="border-t hover:bg-gray-50">
 
-<td>
+                            <td class="py-2 px-4"><?php echo $c["id"]; ?></td>
+                            <td class="py-2 px-4"><?php echo $c["nombre"]; ?></td>
+                            <td class="py-2 px-4"><?php echo $c["descripcion"]; ?></td>
 
-<a href="editarCursoVS.php?id=<?php echo $c["id"]; ?>">Editar</a>
+                            <?php if($_SESSION["rol"] == "admin"){ ?>
+                            <td class="py-2 px-4 space-x-2">
 
-<a href="eliminarCurso.php?id=<?php echo $c["id"]; ?>">Eliminar</a>
+                                <a href="editarCursoVS.php?id=<?php echo $c["id"]; ?>"
+                                   class="text-indigo-600 hover:underline">
+                                   Editar
+                                </a>
 
-</td>
+                                <a href="eliminarCurso.php?id=<?php echo $c["id"]; ?>"
+                                   class="text-red-600 hover:underline">
+                                   Eliminar
+                                </a>
 
-<?php } ?>
+                            </td>
+                            <?php } ?>
 
-</tr>
+                        </tr>
+                        <?php } ?>
 
-<?php } ?>
+                    </tbody>
 
-</table>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

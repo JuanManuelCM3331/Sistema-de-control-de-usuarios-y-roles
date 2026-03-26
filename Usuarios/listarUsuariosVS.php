@@ -19,40 +19,79 @@ $stmt->execute();
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<h2>Lista de usuarios</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lista de usuarios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<a href="registrarUsuarioVS.php">Nuevo Usuario</a>
-<br><br>
+<body class="bg-gradient-to-br from-slate-200 to-slate-300 min-h-screen font-sans">
 
-<table border="1">
+    <div class="max-w-5xl mx-auto py-10">
 
-<tr>
-<th>ID</th>
-<th>Nombre</th>
-<th>Email</th>
-<th>Rol</th>
-<th>Acciones</th>
-</tr>
+        <div class="bg-white p-8 rounded-2xl shadow-xl">
 
-<?php foreach($usuarios as $u){ ?>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Lista de usuarios
+            </h2>
 
-<tr>
+            <div class="mb-4 text-right">
+                <a href="registrarUsuarioVS.php"
+                   class="px-4 py-2 rounded-lg text-white font-medium bg-gradient-to-r from-indigo-500 to-purple-500 hover:opacity-90 transition">
+                   Nuevo Usuario
+                </a>
+            </div>
 
-<td><?php echo $u["id"]; ?></td>
-<td><?php echo $u["nombre"]; ?></td>
-<td><?php echo $u["email"]; ?></td>
-<td><?php echo $u["rol"]; ?></td>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
 
-<td>
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-700">
+                            <th class="py-3 px-4 text-left">ID</th>
+                            <th class="py-3 px-4 text-left">Nombre</th>
+                            <th class="py-3 px-4 text-left">Email</th>
+                            <th class="py-3 px-4 text-left">Rol</th>
+                            <th class="py-3 px-4 text-left">Acciones</th>
+                        </tr>
+                    </thead>
 
-<a href="editarUsuariosVS.php?id=<?php echo $u["id"]; ?>">Editar</a>
+                    <tbody>
 
-<a href="eliminarUsuarios.php?id=<?php echo $u["id"]; ?>">Eliminar</a>
+                        <?php foreach($usuarios as $u){ ?>
+                        <tr class="border-t hover:bg-gray-50">
 
-</td>
+                            <td class="py-2 px-4"><?php echo $u["id"]; ?></td>
+                            <td class="py-2 px-4"><?php echo $u["nombre"]; ?></td>
+                            <td class="py-2 px-4"><?php echo $u["email"]; ?></td>
+                            <td class="py-2 px-4"><?php echo $u["rol"]; ?></td>
 
-</tr>
+                            <td class="py-2 px-4 space-x-2">
 
-<?php } ?>
+                                <a href="editarUsuariosVS.php?id=<?php echo $u["id"]; ?>"
+                                   class="text-indigo-600 hover:underline">
+                                   Editar
+                                </a>
 
-</table>
+                                <a href="eliminarUsuarios.php?id=<?php echo $u["id"]; ?>"
+                                   class="text-red-600 hover:underline">
+                                   Eliminar
+                                </a>
+
+                            </td>
+
+                        </tr>
+                        <?php } ?>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
