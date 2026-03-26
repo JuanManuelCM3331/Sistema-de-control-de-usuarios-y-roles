@@ -49,7 +49,7 @@ session_start();
 
 <button class="btn btn-success">Guardar</button>
 
-<a href="listarUsuarios.php" class="btn btn-secondary">Volver</a>
+<a href="listarUsuariosVS.php" class="btn btn-secondary">Volver</a>
 
 </form>
 

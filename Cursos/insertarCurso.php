@@ -18,6 +18,6 @@ $stmt->bindParam(":profesor",$profesor);
 
 $stmt->execute();
 
-header("Location: listarCurso.php");
+header("Location: listarCursoVS.php");
 
 ?>

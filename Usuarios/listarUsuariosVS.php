@@ -3,7 +3,7 @@ session_start();
 require "../Sistema/conexion.php";
 
 if(!isset($_SESSION["usuario"])){
-header("Location: ../Sistema/login.php");
+header("Location: ../Sistema/loginVS.php");
 exit();
 }
 
@@ -21,7 +21,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <h2>Lista de usuarios</h2>
 
-<a href="registrarUsuario.php">Nuevo Usuario</a>
+<a href="registrarUsuarioVS.php">Nuevo Usuario</a>
 <br><br>
 
 <table border="1">
@@ -45,7 +45,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <td>
 
-<a href="editarUsuarios.php?id=<?php echo $u["id"]; ?>">Editar</a>
+<a href="editarUsuariosVS.php?id=<?php echo $u["id"]; ?>">Editar</a>
 
 <a href="eliminarUsuarios.php?id=<?php echo $u["id"]; ?>">Eliminar</a>
 

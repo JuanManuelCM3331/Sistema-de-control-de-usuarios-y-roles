@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION["usuario"])){
-header("Location: ../Sistema/login.php");
+header("Location: ../Sistema/loginVS.php");
 exit();
 }
 

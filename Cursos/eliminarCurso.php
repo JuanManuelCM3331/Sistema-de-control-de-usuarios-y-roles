@@ -13,6 +13,6 @@ $stmt->bindParam(":id",$id);
 
 $stmt->execute();
 
-header("Location: listarCurso.php");
+header("Location: listarCursoVS.php");
 
 ?>

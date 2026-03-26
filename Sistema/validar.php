@@ -24,13 +24,13 @@ if($usuario){
 $_SESSION["usuario"] = $usuario["nombre"];
 $_SESSION["rol"] = $usuario["rol"];
 
-header("Location: dashboard.php");
+header("Location: dashboardVS.php");
 exit();
 
 }else{
 
 echo "Usuario o contraseña incorrectos <br>";
-echo "<a href='login.php'>Volver</a>";
+echo "<a href='loginVS.php'>Volver</a>";
 
 }
 

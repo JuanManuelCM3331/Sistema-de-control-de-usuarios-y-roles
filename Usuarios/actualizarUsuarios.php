@@ -23,6 +23,6 @@ $stmt->bindParam(":id",$id);
 
 $stmt->execute();
 
-header("Location: listarUsuarios.php");
+header("Location: listarUsuariosVS.php");
 
 ?>

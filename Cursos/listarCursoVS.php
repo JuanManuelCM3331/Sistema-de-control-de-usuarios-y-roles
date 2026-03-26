@@ -3,7 +3,7 @@ session_start();
 require "../Sistema/conexion.php";
 
 if(!isset($_SESSION["usuario"])){
-header("Location: ../Sistema/login.php");
+header("Location: ../Sistema/loginVS.php");
 exit();
 }
 
@@ -17,7 +17,7 @@ $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <h2>Lista de Cursos</h2>
 
 <?php if($_SESSION["rol"] == "admin"){ ?>
-<a href="registrarCurso.php">Nuevo Curso</a>
+<a href="registrarCursoVS.php">Nuevo Curso</a>
 <?php } ?>
 
 <br><br>
@@ -47,7 +47,7 @@ $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <td>
 
-<a href="editarCurso.php?id=<?php echo $c["id"]; ?>">Editar</a>
+<a href="editarCursoVS.php?id=<?php echo $c["id"]; ?>">Editar</a>
 
 <a href="eliminarCurso.php?id=<?php echo $c["id"]; ?>">Eliminar</a>
 

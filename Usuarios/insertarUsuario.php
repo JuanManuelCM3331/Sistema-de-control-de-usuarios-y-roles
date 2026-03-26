@@ -20,6 +20,6 @@ $stmt->bindParam(":rol",$rol);
 
 $stmt->execute();
 
-header("Location: listarUsuarios.php");
+header("Location: listarUsuariosVS.php");
 
 ?>

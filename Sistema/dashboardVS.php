@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION["usuario"])){
-header("Location: login.php");
+header("Location: loginVS.php");
 exit();
 }
 ?>
@@ -20,12 +20,12 @@ exit();
 
 <hr>
 
-<a href="../Cursos/listarCurso.php">Ver Cursos</a>
+<a href="../Cursos/listarCursoVS.php">Ver Cursos</a>
 <br><br>
 
 <?php if($_SESSION["rol"] == "admin"){ ?>
 
-<a href="../Usuarios/listarUsuarios.php">Gestionar Usuarios</a>
+<a href="../Usuarios/listarUsuariosVS.php">Gestionar Usuarios</a>
 
 <?php } ?>
 
